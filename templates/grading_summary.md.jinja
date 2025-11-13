@@ -1,0 +1,36 @@
+# Grading Summary: {{ result.submission_id }}
+
+**Final Score:** {{ "%.2f"|format(result.final_score) }}/100
+**Self-Grade:** {{ result.self_grade }}/100
+**Difference:** {{ "%+.2f"|format(result.final_score - result.self_grade) }} points
+
+{{ result.comparison_message }}
+
+## Category Scores
+
+{% if result.breakdown %}
+{% for category_name, category_data in result.breakdown.items() %}
+- **{{ category_name }}**: {{ "%.1f"|format(category_data.weighted_score) }}/100
+{% endfor %}
+{% endif %}
+
+## Top Performing Criteria
+
+{% set top_criteria = result.evaluations|sort(attribute='score', reverse=True)[:5] %}
+{% for criterion in top_criteria %}
+{{ loop.index }}. {{ criterion.criterion_name }}: {{ "%.1f"|format(criterion.score) }}/100
+{% endfor %}
+
+## Areas Needing Attention
+
+{% set bottom_criteria = result.evaluations|sort(attribute='score')[:3] %}
+{% for criterion in bottom_criteria %}
+{{ loop.index }}. {{ criterion.criterion_name }}: {{ "%.1f"|format(criterion.score) }}/100
+{% if criterion.suggestions %}
+   - {{ criterion.suggestions[0] }}
+{% endif %}
+{% endfor %}
+
+---
+*Generated: {{ generated_at }}*
+*Processing Time: {{ "%.1f"|format(result.processing_time_seconds) }}s*

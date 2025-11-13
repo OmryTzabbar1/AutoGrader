@@ -1,0 +1,217 @@
+# Grading Report: {{ result.submission_id }}
+
+**Generated:** {{ generated_at }}
+**Processing Time:** {{ "%.2f"|format(result.processing_time_seconds) }}s
+
+---
+
+## Executive Summary
+
+| Metric | Value |
+|--------|-------|
+| **Self-Grade** | {{ result.self_grade }}/100 |
+| **Final Score** | **{{ "%.2f"|format(result.final_score) }}/100** |
+| **Difference** | {{ "%+.2f"|format(result.final_score - result.self_grade) }} points |
+| **Criticism Multiplier** | {{ "%.2f"|format(result.criticism_multiplier) }}x |
+
+### Self-Assessment Accuracy
+
+{{ result.comparison_message }}
+
+---
+
+## Category Breakdown
+
+{% if result.breakdown %}
+| Category | Weight | Weighted Score | Performance |
+|----------|--------|----------------|-------------|
+{% for category_name, category_data in result.breakdown.items() %}
+{%- set score = category_data.weighted_score -%}
+{%- if score >= 90 -%}
+{%- set perf = "🟢 Excellent" -%}
+{%- elif score >= 80 -%}
+{%- set perf = "🔵 Good" -%}
+{%- elif score >= 70 -%}
+{%- set perf = "🟡 Adequate" -%}
+{%- else -%}
+{%- set perf = "🔴 Needs Improvement" -%}
+{%- endif %}
+| {{ category_name }} | {{ "%.2f"|format(category_data.total_weight) }} | {{ "%.2f"|format(score) }} | {{ perf }} |
+{% endfor %}
+{% endif %}
+
+---
+
+## Detailed Criterion Evaluations
+
+{% for evaluation in result.evaluations|sort(attribute='score', reverse=True) %}
+### {{ loop.index }}. {{ evaluation.criterion_name }}
+
+**Score:** {{ "%.1f"|format(evaluation.score) }}/100 | **Weight:** {{ "%.2f"|format(evaluation.weight) }} | **Severity:** {{ evaluation.severity }}
+
+{% if evaluation.strengths %}
+#### ✅ Strengths
+
+{% for strength in evaluation.strengths %}
+- {{ strength }}
+{% endfor %}
+{% endif %}
+
+{% if evaluation.weaknesses %}
+#### ❌ Weaknesses
+
+{% for weakness in evaluation.weaknesses %}
+- {{ weakness }}
+{% endfor %}
+{% endif %}
+
+{% if evaluation.suggestions %}
+#### 💡 Suggestions for Improvement
+
+{% for suggestion in evaluation.suggestions %}
+- {{ suggestion }}
+{% endfor %}
+{% endif %}
+
+{% if evaluation.evidence %}
+#### 📋 Evidence
+
+{% for evidence in evaluation.evidence[:3] %}
+> {{ evidence }}
+{% endfor %}
+{% endif %}
+
+---
+
+{% endfor %}
+
+## Grade Distribution by Category
+
+{% if result.breakdown %}
+{% for category_name, category_data in result.breakdown.items() %}
+### {{ category_name }} ({{ "%.2f"|format(category_data.weighted_score) }}/100)
+
+| Criterion | Score | Severity |
+|-----------|-------|----------|
+{% for criterion in category_data.criteria %}
+| {{ criterion.criterion_name }} | {{ "%.1f"|format(criterion.score) }} | {{ criterion.severity }} |
+{% endfor %}
+
+{% endfor %}
+{% endif %}
+
+---
+
+## Overall Assessment
+
+### Performance Summary
+
+{% set final_score = result.final_score %}
+{% if final_score >= 90 %}
+**Outstanding Performance** 🌟
+
+This submission demonstrates exceptional quality across all evaluation criteria. The work shows mastery of software engineering principles, comprehensive documentation, thorough testing, and professional-grade implementation.
+
+**Key Achievements:**
+{% elif final_score >= 80 %}
+**Strong Performance** 👍
+
+This submission shows strong competency in most areas with room for improvement in specific aspects. The work demonstrates solid understanding of software engineering practices with good execution.
+
+**Key Achievements:**
+{% elif final_score >= 70 %}
+**Adequate Performance** ✓
+
+This submission meets the basic requirements but has several areas that need improvement. The work shows understanding of core concepts but lacks polish in execution and documentation.
+
+**Areas to Focus:**
+{% else %}
+**Needs Significant Improvement** ⚠️
+
+This submission requires substantial revision to meet the expected standards. Multiple critical areas need attention and improvement.
+
+**Critical Areas:**
+{% endif %}
+
+{% set top_criteria = result.evaluations|sort(attribute='score', reverse=True)[:3] %}
+{% for criterion in top_criteria %}
+- **{{ criterion.criterion_name }}**: {{ "%.1f"|format(criterion.score) }}/100
+{% endfor %}
+
+### Areas for Improvement
+
+{% set bottom_criteria = result.evaluations|sort(attribute='score')[:3] %}
+{% for criterion in bottom_criteria %}
+- **{{ criterion.criterion_name }}**: {{ "%.1f"|format(criterion.score) }}/100 - {{ criterion.weaknesses[0] if criterion.weaknesses else "Requires attention" }}
+{% endfor %}
+
+---
+
+## Recommendations
+
+{% set low_scores = result.evaluations|selectattr('score', 'lt', 70)|list %}
+{% if low_scores %}
+### Priority Actions
+
+The following criteria scored below 70 and should be addressed as priority:
+
+{% for criterion in low_scores %}
+#### {{ criterion.criterion_name }} ({{ "%.1f"|format(criterion.score) }}/100)
+
+{% if criterion.suggestions %}
+{{ criterion.suggestions[0] }}
+{% endif %}
+{% endfor %}
+{% else %}
+No critical issues identified. Continue maintaining the current quality standards.
+{% endif %}
+
+### Next Steps
+
+1. Review the detailed feedback for each criterion above
+2. Focus on the "Areas for Improvement" section
+3. Implement the suggestions provided for low-scoring criteria
+4. Consider the evidence cited to understand specific issues
+5. Maintain the strengths identified in high-scoring areas
+
+---
+
+## Grading Methodology
+
+This submission was evaluated using an adaptive multi-agent AI system:
+
+- **Criticism Multiplier:** {{ "%.2f"|format(result.criticism_multiplier) }}x (based on self-grade of {{ result.self_grade }})
+- **Evaluation Criteria:** 17 weighted criteria across 6 categories
+- **AI Model:** Claude Sonnet 4 by Anthropic
+- **Evaluation Method:** Parallel evaluation by specialized agents
+
+{% if result.criticism_multiplier >= 1.5 %}
+*Note: Very strict evaluation standards were applied due to high self-grade.*
+{% elif result.criticism_multiplier >= 1.2 %}
+*Note: Strict evaluation standards were applied due to above-average self-grade.*
+{% elif result.criticism_multiplier <= 0.6 %}
+*Note: Supportive evaluation standards were applied to encourage improvement.*
+{% elif result.criticism_multiplier <= 0.8 %}
+*Note: Encouraging evaluation standards were applied.*
+{% endif %}
+
+---
+
+## Appendix: Evaluation Criteria Weights
+
+| Category | Criteria | Total Weight |
+|----------|----------|--------------|
+| **Documentation** | PRD Quality (0.08), Architecture Doc (0.07), README (0.05) | 20% |
+| **Code Quality** | Project Structure (0.10), Code Documentation (0.08), Code Principles (0.07) | 25% |
+| **Configuration & Security** | Config Management (0.05), Security Practices (0.05) | 10% |
+| **Testing** | Unit Tests (0.10), Error Handling (0.06), Test Results (0.04) | 20% |
+| **Research & Analysis** | Parameter Exploration (0.05), Analysis Notebook (0.06), Visualization (0.04) | 15% |
+| **UI/UX** | Usability (0.03), Interface Documentation (0.02) | 5% |
+| **Version Control** | Git Practices (0.03), Prompt Log (0.02) | 5% |
+
+**Total:** 100%
+
+---
+
+*This report was generated by AutoGrader v0.1.0*
+*For questions or concerns about this evaluation, please contact your instructor.*
