@@ -1,0 +1,117 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.conda/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.key
+secrets.yaml
+api_keys.txt
+config/local_*.yaml
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Logs
+*.log
+logs/*.log
+audit_logs/
+
+# PDF Submissions (don't commit student work)
+submissions/
+workspace/inputs/*.pdf
+workspace/outputs/*.pdf
+!tests/fixtures/*.pdf
+
+# Generated Reports
+workspace/outputs/*
+!workspace/outputs/.gitkeep
+
+# Intermediate Files
+workspace/intermediate/*
+!workspace/intermediate/.gitkeep
+
+# Cache
+.cache/
+*.cache
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Claude Code
+.claude/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
