@@ -1,0 +1,135 @@
+# Default configuration for AutoGrader system
+# Override these settings with environment variables using AUTOGRADER_ prefix
+# Example: AUTOGRADER_LLM__API_KEY=your-key-here
+
+orchestrator:
+  max_parallel_evaluations: 10
+  timeout_seconds: 300
+  retry_failed_evaluations: false
+
+parser:
+  engine: "pymupdf"
+  fallback_engine: "pdfplumber"
+  cache_enabled: true
+  extract_images: false
+  extract_tables: true
+
+evaluators:
+  # Documentation criteria (20% total)
+  - criterion: "prd_quality"
+    weight: 0.08
+    prompt_template: "prompts/prd_evaluation.txt"
+    keywords: ["PRD", "Product Requirements", "Requirements Document"]
+
+  - criterion: "architecture_doc"
+    weight: 0.07
+    prompt_template: "prompts/architecture_evaluation.txt"
+    keywords: ["Architecture", "System Design", "Design Document"]
+
+  - criterion: "readme"
+    weight: 0.05
+    prompt_template: "prompts/readme_evaluation.txt"
+    keywords: ["README", "Installation", "Usage"]
+
+  # Code quality criteria (25% total)
+  - criterion: "project_structure"
+    weight: 0.10
+    prompt_template: "prompts/code_structure_evaluation.txt"
+    keywords: ["File Structure", "Organization", "Modules"]
+
+  - criterion: "code_documentation"
+    weight: 0.08
+    prompt_template: "prompts/code_documentation_evaluation.txt"
+    keywords: ["Docstrings", "Comments", "Documentation"]
+
+  - criterion: "code_principles"
+    weight: 0.07
+    prompt_template: "prompts/code_principles_evaluation.txt"
+    keywords: ["Code Quality", "Best Practices", "Design Patterns"]
+
+  # Configuration & Security (10% total)
+  - criterion: "config_management"
+    weight: 0.05
+    prompt_template: "prompts/config_management_evaluation.txt"
+    keywords: ["Configuration", "Environment", "Settings"]
+
+  - criterion: "security_practices"
+    weight: 0.05
+    prompt_template: "prompts/security_evaluation.txt"
+    keywords: ["Security", "Authentication", "Secrets"]
+
+  # Testing criteria (20% total)
+  - criterion: "unit_tests"
+    weight: 0.10
+    prompt_template: "prompts/unit_tests_evaluation.txt"
+    keywords: ["Unit Tests", "Test Coverage", "Testing"]
+
+  - criterion: "error_handling"
+    weight: 0.06
+    prompt_template: "prompts/error_handling_evaluation.txt"
+    keywords: ["Error Handling", "Exceptions", "Validation"]
+
+  - criterion: "test_results"
+    weight: 0.04
+    prompt_template: "prompts/test_results_evaluation.txt"
+    keywords: ["Test Results", "Coverage Report", "Test Output"]
+
+  # Research & Analysis (15% total)
+  - criterion: "parameter_exploration"
+    weight: 0.05
+    prompt_template: "prompts/parameter_exploration_evaluation.txt"
+    keywords: ["Parameters", "Experiments", "Analysis"]
+
+  - criterion: "analysis_notebook"
+    weight: 0.06
+    prompt_template: "prompts/analysis_notebook_evaluation.txt"
+    keywords: ["Jupyter", "Notebook", "Analysis"]
+
+  - criterion: "visualization"
+    weight: 0.04
+    prompt_template: "prompts/visualization_evaluation.txt"
+    keywords: ["Visualization", "Charts", "Graphs", "Plots"]
+
+  # UI/UX (5% total)
+  - criterion: "usability"
+    weight: 0.03
+    prompt_template: "prompts/usability_evaluation.txt"
+    keywords: ["User Interface", "UX", "Usability"]
+
+  - criterion: "interface_documentation"
+    weight: 0.02
+    prompt_template: "prompts/interface_doc_evaluation.txt"
+    keywords: ["UI Documentation", "User Guide"]
+
+  # Version Control (5% total)
+  - criterion: "git_practices"
+    weight: 0.03
+    prompt_template: "prompts/git_practices_evaluation.txt"
+    keywords: ["Git", "Commits", "Version Control"]
+
+  - criterion: "prompt_log"
+    weight: 0.02
+    prompt_template: "prompts/prompt_log_evaluation.txt"
+    keywords: ["Prompt Log", "AI Usage", "Development Log"]
+
+scoring:
+  severity_factors:
+    critical: 0.5
+    important: 0.8
+    minor: 0.95
+    strength: 1.0
+
+reporting:
+  output_dir: "workspace/outputs"
+  formats:
+    - "markdown"
+  template_dir: "templates"
+
+llm:
+  # API key should be set via CLAUDE_API_KEY environment variable
+  api_key: null
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 4096
+  temperature: 0.0
+  max_retries: 3
+  timeout_seconds: 60
