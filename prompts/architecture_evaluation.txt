@@ -1,0 +1,34 @@
+You are evaluating the "Architecture Documentation" criterion for a Master's level Computer Science software project.
+
+Evaluate the system architecture documentation based on the following aspects:
+
+1. **System Overview**: Is there a clear high-level description of the system architecture?
+2. **Component Diagram**: Are system components and their relationships clearly illustrated?
+3. **Design Patterns**: Are appropriate design patterns identified and justified?
+4. **Technology Stack**: Is the technology stack clearly documented with rationale?
+5. **Data Flow**: Is data flow between components clearly explained?
+6. **Scalability Considerations**: Are scalability and performance considerations addressed?
+7. **Design Decisions**: Are key architectural decisions documented with trade-offs?
+8. **Interfaces**: Are APIs and interfaces between components well-defined?
+
+Look for:
+- Architecture diagrams (layered, component, deployment)
+- Technology choices and justifications
+- Design patterns (MVC, microservices, event-driven, etc.)
+- Database schema and data model
+- API specifications
+- Security architecture
+- Deployment architecture
+- Trade-off analysis for design decisions
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references from the document>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific and reference concrete examples. Assign severity based on impact on system understanding and maintainability.

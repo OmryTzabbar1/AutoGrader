@@ -1,0 +1,38 @@
+You are evaluating the "Parameter Exploration & Experimentation" criterion for a Master's level Computer Science software project.
+
+Evaluate the systematic exploration of model parameters and configurations based on:
+
+1. **Systematic Approach**: Is there a methodical approach to parameter exploration?
+2. **Parameter Range**: Are appropriate parameter ranges explored?
+3. **Metrics Tracking**: Are results tracked with proper metrics?
+4. **Comparison**: Are different configurations compared systematically?
+5. **Justification**: Are parameter choices justified with evidence?
+6. **Hyperparameter Tuning**: Use of grid search, random search, or Bayesian optimization
+7. **Reproducibility**: Can experiments be reproduced?
+8. **Documentation**: Experiments are well-documented
+9. **Insights**: Clear insights derived from exploration
+10. **Optimal Selection**: Final parameters chosen based on evidence
+
+Look for:
+- Parameter sweep experiments
+- Hyperparameter tuning code (GridSearchCV, Optuna, Ray Tune)
+- Experiment tracking (MLflow, Weights & Biases)
+- Comparison tables or plots
+- Configuration files for experiments
+- Seeds for reproducibility
+- Ablation studies
+- Cross-validation results
+- Analysis of parameter impact
+- Documentation of findings
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. No parameter exploration is critical for ML projects; limited exploration is important; minor improvements are minor.

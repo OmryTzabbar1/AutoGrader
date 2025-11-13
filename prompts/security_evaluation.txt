@@ -1,0 +1,38 @@
+You are evaluating the "Security Practices" criterion for a Master's level Computer Science software project.
+
+Evaluate security considerations and practices based on:
+
+1. **Input Validation**: Proper validation and sanitization of user inputs
+2. **Authentication/Authorization**: Secure authentication and access control if applicable
+3. **Data Protection**: Encryption of sensitive data (at rest and in transit)
+4. **Dependency Security**: No known vulnerable dependencies
+5. **Secrets Management**: Secure handling of API keys, passwords, tokens
+6. **SQL Injection Prevention**: Parameterized queries, ORMs
+7. **XSS Prevention**: Output encoding, CSP headers (if web app)
+8. **Security Headers**: Appropriate security headers (HTTPS, CORS)
+9. **Error Handling**: No sensitive info in error messages
+10. **Security Testing**: Evidence of security considerations
+
+Look for:
+- Input validation and sanitization
+- Parameterized SQL queries or ORMs
+- Password hashing (bcrypt, argon2)
+- HTTPS usage
+- Secure session management
+- CSRF protection (if web app)
+- Rate limiting
+- Security-related tests
+- Dependency scanning
+- .env files in .gitignore
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. Critical vulnerabilities (SQL injection, XSS, hardcoded secrets) are critical; missing security headers are important.

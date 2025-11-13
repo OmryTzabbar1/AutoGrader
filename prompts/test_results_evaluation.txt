@@ -1,0 +1,37 @@
+You are evaluating the "Test Results & CI/CD" criterion for a Master's level Computer Science software project.
+
+Evaluate the testing infrastructure and results based on:
+
+1. **Test Execution**: Evidence that tests are run regularly
+2. **Pass Rate**: What percentage of tests pass?
+3. **CI/CD Pipeline**: Automated testing in CI/CD (GitHub Actions, Jenkins, GitLab CI)
+4. **Test Reports**: Test coverage reports and metrics
+5. **Integration Tests**: Beyond unit tests, are there integration/E2E tests?
+6. **Test Automation**: Tests run automatically on commits/PRs
+7. **Build Status**: Build passes successfully
+8. **Code Quality Checks**: Linting, formatting checks in pipeline
+9. **Performance Tests**: Any performance or load testing
+10. **Documentation**: Testing process documented
+
+Look for:
+- CI/CD configuration files (.github/workflows, .gitlab-ci.yml, Jenkinsfile)
+- Test coverage reports (coverage.xml, .coverage)
+- Build badges showing test status
+- Test execution logs or screenshots
+- Integration with testing services (Travis, CircleCI)
+- Pre-commit hooks for testing
+- Code quality tools (ESLint, pylint, SonarQube)
+- Performance benchmarks
+- Testing documentation
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. Failing tests are critical; no CI/CD is important; missing coverage reports is minor.

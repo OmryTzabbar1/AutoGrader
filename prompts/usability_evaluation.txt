@@ -1,0 +1,38 @@
+You are evaluating the "Usability & User Experience" criterion for a Master's level Computer Science software project.
+
+Evaluate the usability and user experience based on:
+
+1. **Ease of Use**: Is the system intuitive and easy to use?
+2. **User Interface**: Clean, well-designed UI if applicable
+3. **Error Messages**: Clear, helpful error messages for users
+4. **Feedback**: System provides feedback for user actions
+5. **Consistency**: Consistent UI/UX patterns throughout
+6. **Accessibility**: Accessible to users with disabilities (WCAG compliance)
+7. **Responsiveness**: UI is responsive and performs well
+8. **Help & Guidance**: Tooltips, help text, or documentation for users
+9. **User Testing**: Evidence of user testing or feedback
+10. **Mobile-Friendly**: Responsive design if web application
+
+Look for:
+- Screenshots or descriptions of user interface
+- CLI with helpful --help text and examples
+- Web UI with intuitive navigation
+- Form validation with clear messages
+- Loading indicators and progress bars
+- Accessibility features (ARIA labels, keyboard navigation)
+- User onboarding or tutorials
+- Error handling from user perspective
+- User testing results or feedback
+- Responsive design (Bootstrap, Tailwind)
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. Completely unusable UI is critical; poor error messages are important; minor design inconsistencies are minor.

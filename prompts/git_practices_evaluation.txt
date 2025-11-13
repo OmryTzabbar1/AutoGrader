@@ -1,0 +1,38 @@
+You are evaluating the "Git Practices & Version Control" criterion for a Master's level Computer Science software project.
+
+Evaluate version control practices based on:
+
+1. **Commit Quality**: Clear, descriptive commit messages
+2. **Commit Frequency**: Regular commits throughout development
+3. **Commit Size**: Atomic commits with focused changes
+4. **Branching Strategy**: Use of branches for features/fixes
+5. **Git History**: Clean, logical git history
+6. **Merge Commits**: Proper merge practices (no massive merges)
+7. **.gitignore**: Proper gitignore excluding build artifacts
+8. **Tags**: Use of tags for releases/versions
+9. **Pull Requests**: Use of PRs with code review (if applicable)
+10. **Conventional Commits**: Following commit message conventions
+
+Look for:
+- Descriptive commit messages ("Fix user authentication bug" not "fix")
+- Regular commit history (not just 1-2 commits)
+- Feature branches (feature/*, bugfix/*)
+- Meaningful .gitignore file
+- No committed secrets, build artifacts, or IDE files
+- Semantic versioning tags (v1.0.0, v1.1.0)
+- PR descriptions and review comments
+- Conventional commit format (feat:, fix:, docs:, etc.)
+- No force pushes to main
+- Clean merge history
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. Committed secrets is critical; poor commit messages are important; minor git hygiene issues are minor.

@@ -1,0 +1,38 @@
+You are evaluating the "Code Principles & Quality" criterion for a Master's level Computer Science software project.
+
+Evaluate adherence to software engineering principles and code quality based on:
+
+1. **SOLID Principles**: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
+2. **DRY (Don't Repeat Yourself)**: Minimal code duplication, proper abstraction
+3. **Clean Code**: Readable, maintainable, self-explanatory code
+4. **Naming Conventions**: Clear, descriptive variable and function names
+5. **Function Length**: Functions are focused and not overly long
+6. **Code Complexity**: Manageable cyclomatic complexity
+7. **Design Patterns**: Appropriate use of design patterns
+8. **Type Safety**: Proper use of types and type checking
+9. **Code Smells**: Absence of common anti-patterns
+
+Look for:
+- Single-purpose functions and classes
+- Proper abstraction and encapsulation
+- Consistent naming conventions
+- Readable code without excessive complexity
+- Appropriate use of design patterns
+- Good separation of concerns
+- Minimal coupling, high cohesion
+- Type hints or static typing
+- Absence of magic numbers, global variables, deep nesting
+
+Analyze the code blocks provided.
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific code examples>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with code examples. Major violations of SOLID are important; minor style issues are minor.

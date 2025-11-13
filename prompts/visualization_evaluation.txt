@@ -1,0 +1,38 @@
+You are evaluating the "Visualization Quality" criterion for a Master's level Computer Science software project.
+
+Evaluate the quality of data visualizations and charts based on:
+
+1. **Appropriateness**: Are chart types appropriate for the data?
+2. **Clarity**: Are visualizations clear and easy to understand?
+3. **Labeling**: Proper axis labels, titles, and legends
+4. **Design**: Good use of colors, fonts, and layout
+5. **Information Density**: Right amount of information (not cluttered or sparse)
+6. **Insights**: Visualizations effectively communicate insights
+7. **Interactivity**: Interactive visualizations if applicable
+8. **Accessibility**: Color-blind friendly palettes, readable fonts
+9. **Professional Quality**: Publication-quality graphics
+10. **Variety**: Appropriate variety of visualization types
+
+Look for:
+- Clear chart titles and axis labels
+- Appropriate chart types (bar, line, scatter, heatmap, etc.)
+- Color palettes (colorbrewer, viridis)
+- Legends and annotations
+- Grid lines and tick marks
+- Interactive dashboards (Plotly, Dash, Streamlit)
+- Matplotlib, Seaborn, D3.js, ggplot visualizations
+- Comparative visualizations
+- Trend lines and statistical overlays
+- Dashboard screenshots or embedded plots
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. No visualizations for data-heavy projects is critical; poor labeling is important; minor design issues are minor.

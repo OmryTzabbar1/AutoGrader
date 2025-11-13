@@ -1,0 +1,40 @@
+You are evaluating the "Prompt Engineering Log" criterion for a Master's level Computer Science software project involving AI/LLM integration.
+
+Evaluate the documentation of prompt engineering and LLM interaction based on:
+
+1. **Prompt Documentation**: Are prompts used in the system documented?
+2. **Prompt Evolution**: Is there a log showing prompt iterations and improvements?
+3. **Prompt Templates**: Are prompt templates well-structured and reusable?
+4. **Few-Shot Examples**: Use of few-shot learning with examples in prompts
+5. **System/User Roles**: Proper use of system and user roles in prompts
+6. **Prompt Engineering Techniques**: Use of techniques (chain-of-thought, few-shot, etc.)
+7. **Evaluation**: Are prompt outputs evaluated systematically?
+8. **Version Control**: Are prompts version-controlled?
+9. **Parameters**: Documentation of temperature, max_tokens, etc.
+10. **Cost Tracking**: Awareness of token usage and costs
+
+Look for:
+- Prompt template files or prompt library
+- Prompt engineering documentation
+- A/B testing of different prompts
+- Prompt versioning and changelog
+- Examples of prompt inputs and outputs
+- Chain-of-thought prompting
+- Few-shot examples in prompts
+- System message definitions
+- Token counting and cost estimation
+- Evaluation metrics for prompt quality
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. No prompt documentation for LLM projects is critical; hardcoded prompts are important; missing iteration logs are minor.
+
+Note: If the project does not involve LLMs or prompt engineering, evaluate based on documentation of any AI/ML model interactions, API calls, or external service integrations instead.

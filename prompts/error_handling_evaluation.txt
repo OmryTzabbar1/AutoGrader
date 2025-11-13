@@ -1,0 +1,38 @@
+You are evaluating the "Error Handling" criterion for a Master's level Computer Science software project.
+
+Evaluate the error handling and robustness based on:
+
+1. **Exception Handling**: Proper try-catch blocks for error-prone operations
+2. **Error Types**: Using appropriate exception types/classes
+3. **Error Messages**: Clear, informative error messages
+4. **Logging**: Errors are logged appropriately
+5. **Graceful Degradation**: System handles errors without crashing
+6. **Input Validation**: Validates inputs before processing
+7. **Recovery**: Appropriate error recovery mechanisms
+8. **User Feedback**: Users receive helpful error feedback
+9. **Testing**: Error paths are tested
+10. **No Silent Failures**: Errors are not swallowed without handling
+
+Look for:
+- Try-catch blocks around I/O, network calls, file operations
+- Custom exception classes
+- Logging of exceptions with context
+- Input validation before processing
+- Appropriate error return codes or exceptions
+- User-friendly error messages
+- Retry logic for transient failures
+- Circuit breakers for external services
+- Error handling tests
+- No bare except: or catch (Exception) without re-raising
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific code examples>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific with examples. No error handling is critical; inadequate handling is important; minor improvements are minor.

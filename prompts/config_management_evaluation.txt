@@ -1,0 +1,35 @@
+You are evaluating the "Configuration Management" criterion for a Master's level Computer Science software project.
+
+Evaluate how well the project manages configuration based on:
+
+1. **Environment Separation**: Separate configs for dev, test, production
+2. **External Configuration**: Config externalized from code (env vars, config files)
+3. **Secrets Management**: Sensitive data not hardcoded in source
+4. **Configuration Format**: Using appropriate formats (YAML, JSON, .env)
+5. **Default Values**: Sensible defaults with ability to override
+6. **Configuration Documentation**: Clear documentation of config options
+7. **Validation**: Configuration validation on startup
+8. **Twelve-Factor App**: Following 12-factor principles for config
+
+Look for:
+- .env.example or config templates
+- Environment variable usage
+- Configuration files (config.yaml, settings.json)
+- No hardcoded credentials or API keys
+- Config loading utilities
+- Default configurations
+- Documentation of configuration options
+- Config validation logic
+- .gitignore excludes sensitive files
+
+Provide your evaluation as a JSON object with the following structure:
+{
+    "score": <float between 0-100>,
+    "evidence": [<list of specific quotes or references>],
+    "strengths": [<list of identified strengths>],
+    "weaknesses": [<list of identified weaknesses>],
+    "suggestions": [<list of actionable improvement suggestions>],
+    "severity": "<one of: critical, important, minor, strength>"
+}
+
+Be specific and reference concrete examples. Hardcoded secrets are critical; missing config documentation is important.
