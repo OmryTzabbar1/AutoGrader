@@ -34,7 +34,7 @@ evaluators:
   # Code quality criteria (25% total)
   - criterion: "project_structure"
     weight: 0.10
-    prompt_template: "prompts/code_structure_evaluation.txt"
+    prompt_template: "prompts/project_structure_evaluation.txt"
     keywords: ["File Structure", "Organization", "Modules"]
 
   - criterion: "code_documentation"
@@ -98,7 +98,7 @@ evaluators:
 
   - criterion: "interface_documentation"
     weight: 0.02
-    prompt_template: "prompts/interface_doc_evaluation.txt"
+    prompt_template: "prompts/interface_documentation_evaluation.txt"
     keywords: ["UI Documentation", "User Guide"]
 
   # Version Control (5% total)
